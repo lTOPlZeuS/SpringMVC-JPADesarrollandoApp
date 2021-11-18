@@ -7,11 +7,10 @@ import javax.persistence.PersistenceContext;
 
 import com.bolsadeideas.springboot.app.models.entity.Cliente;
 
-import org.springframework.data.annotation.Persistent;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-@Repository
+@Repository("clienteJPA")
 public class ClienteDaoImplement implements ICLienteDao {
 
   @PersistenceContext
