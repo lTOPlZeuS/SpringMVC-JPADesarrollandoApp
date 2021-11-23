@@ -11,6 +11,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "clientes")
@@ -21,13 +26,28 @@ public class Cliente implements Serializable{
   private Long id;
   // Puedes asignar un nombre personalizado y el segundo dato es el tamano
   // @Column(name = "nombre_cliente", length = 50)
+  
+  @NotEmpty
   private String nombre;
+
+  @NotEmpty
   private String apellido;
+
+  @NotEmpty
+  @Email
   private String email;
   @Column(name = "create_at")
   // Indica el formato de la fecha
+  @NotNull
   @Temporal(TemporalType.DATE)
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
+  
   private Date createAt;
+
+  // @PrePersist
+  // public void prePersist() {
+  //   createAt = new Date();
+  // }
 
   public Long getId() {
     return this.id;
