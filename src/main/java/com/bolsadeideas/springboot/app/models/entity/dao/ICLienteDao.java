@@ -2,8 +2,8 @@ package com.bolsadeideas.springboot.app.models.entity.dao;
 
 import com.bolsadeideas.springboot.app.models.entity.Cliente;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
-public interface ICLienteDao extends CrudRepository<Cliente, Long> {
+public interface ICLienteDao extends PagingAndSortingRepository<Cliente, Long> {
   
 }
